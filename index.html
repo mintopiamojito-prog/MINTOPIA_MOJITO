@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mintopia Mojito</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <img src="logo.png" alt="Mintopia Mojito" class="logo">
+
+    <h1>Mintopia Mojito 🍹</h1>
+
+    <p class="tagline">
+      Segarnya mint dan buah pilihan yang siap menemani harimu.
+    </p>
+  </div>
+
+  <h2>Menu Minuman</h2>
+
+  <div class="menu-card">
+    <img src="img/strawberry.jpg" alt="Strawberry Mojito">
+
+    <div class="menu-info">
+      <h3>🍓 Strawberry Mojito</h3>
+      <p>Rp12.000</p>
+    </div>
+
+    <div class="qty">
+      <button onclick="minus('strawberry')">-</button>
+      <span id="strawberry">0</span>
+      <button onclick="plus('strawberry')">+</button>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="img/melon.jpg" alt="Melon Mojito">
+
+    <div class="menu-info">
+      <h3>🍈 Melon Mojito</h3>
+      <p>Rp12.000</p>
+    </div>
+
+    <div class="qty">
+      <button onclick="minus('melon')">-</button>
+      <span id="melon">0</span>
+      <button onclick="plus('melon')">+</button>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="img/markisa.jpg" alt="Markisa Mojito">
+
+    <div class="menu-info">
+      <h3>🍹 Markisa Mojito</h3>
+      <p>Rp12.000</p>
+    </div>
+
+    <div class="qty">
+      <button onclick="minus('markisa')">-</button>
+      <span id="markisa">0</span>
+      <button onclick="plus('markisa')">+</button>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="img/sunsetberry.jpg" alt="Sunset Berry">
+
+    <div class="menu-info">
+      <h3>🌅 Sunset Berry</h3>
+      <p>Rp12.000</p>
+    </div>
+
+    <div class="qty">
+      <button onclick="minus('sunset')">-</button>
+      <span id="sunset">0</span>
+      <button onclick="plus('sunset')">+</button>
+    </div>
+  </div>
+
+  <h2>Topping Tambahan</h2>
+
+  <div class="checkbox-group">
+
+    <label>
+      <input type="checkbox" id="nata" onchange="hitungTotal()">
+      Nata de Coco (+Rp3.000)
+    </label>
+
+    <label>
+      <input type="checkbox" id="boba" onchange="hitungTotal()">
+      Popping Boba (+Rp3.000)
+    </label>
+
+    <label>
+      <input type="checkbox" id="rainbow" onchange="hitungTotal()">
+      Rainbow Jelly (+Rp3.000)
+    </label>
+
+  </div>
+
+  <h2>Data Pemesan</h2>
+
+  <input type="text" id="nama" placeholder="Nama Lengkap">
+
+  <input type="text" id="nomor" placeholder="Nomor WhatsApp">
+
+  <label>Tanggal Pengambilan</label>
+
+  <select id="tanggal">
+    <option value="13 Juni 2026">
+      13 Juni 2026 (15.00 - 20.00)
+    </option>
+
+    <option value="14 Juni 2026">
+      14 Juni 2026 (08.00 - 20.00)
+    </option>
+  </select>
+
+  <label>Jam Pengambilan</label>
+
+  <select id="jam">
+    <option>15.00</option>
+    <option>16.00</option>
+    <option>17.00</option>
+    <option>18.00</option>
+    <option>19.00</option>
+    <option>20.00</option>
+  </select>
+
+  <label>Metode Pembayaran</label>
+
+  <select id="metode" onchange="showQRIS()">
+    <option value="Cash">Cash</option>
+    <option value="QRIS">QRIS</option>
+  </select>
+
+  <div id="qrisSection" style="display:none">
+
+    <h3>Scan QRIS</h3>
+
+    <img src="qris.jpg" alt="QRIS Mintopia" class="qris">
+
+    <label>Upload Bukti Pembayaran</label>
+
+    <input type="file" accept="image/*">
+
+  </div>
+
+  <div class="pickup">
+    📍 Pengambilan di Kampus Pelita Indonesia
+  </div>
+
+  <div class="total-box">
+    <p>Total Pesanan</p>
+    <h2>Rp <span id="total">0</span></h2>
+  </div>
+
+  <button class="order-btn" onclick="kirimWA()">
+    Kirim Pesanan ke WhatsApp
+  </button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
