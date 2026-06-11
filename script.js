@@ -38,7 +38,7 @@ function hitungTotal(){
     total += hargaTopping;
   }
 
-  if(document.getElementById("rainbow").checked){
+  if(document.getElementById("jelly").checked){
     total += hargaTopping;
   }
 
@@ -103,7 +103,7 @@ function kirimWA(){
     topping.push("Popping Boba");
   }
 
-  if(document.getElementById("rainbow").checked){
+  if(document.getElementById("jelly").checked){
     topping.push("Rainbow Jelly");
   }
 
