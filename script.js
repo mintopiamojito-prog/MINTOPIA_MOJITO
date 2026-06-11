@@ -141,3 +141,33 @@ Rp ${total}
 `https://wa.me/628972151687?text=${encodeURIComponent(pesan)}`
   );
 }
+const tanggalSelect = document.getElementById("tanggal");
+const jamSelect = document.getElementById("jam");
+
+function updateJam() {
+  const tanggal = tanggalSelect.value;
+
+  jamSelect.innerHTML = "";
+
+  let jamList = [];
+
+  if (tanggal === "13 Juni 2026") {
+    jamList = ["15.00", "16.00", "17.00", "18.00", "19.00", "20.00","21.00"];
+  } else {
+    jamList = [
+      "09.00","10.00","11.00",
+      "12.00","13.00","14.00","15.00",
+      "16.00","17.00","18.00","19.00","20.00","21.00"
+    ];
+  }
+
+  jamList.forEach(jam => {
+    const option = document.createElement("option");
+    option.value = jam;
+    option.textContent = jam;
+    jamSelect.appendChild(option);
+  });
+}
+
+tanggalSelect.addEventListener("change", updateJam);
+updateJam();
