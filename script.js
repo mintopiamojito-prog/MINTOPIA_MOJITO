@@ -19,31 +19,32 @@ function minus(id){
 
 function hitungTotal(){
 
-  let strawberry = parseInt(document.getElementById("strawberry").innerText);
-  let melon = parseInt(document.getElementById("melon").innerText);
-  let markisa = parseInt(document.getElementById("markisa").innerText);
-  let sunset = parseInt(document.getElementById("sunset").innerText);
+let strawberry = parseInt(document.getElementById("strawberry").innerText);
+let melon = parseInt(document.getElementById("melon").innerText);
+let markisa = parseInt(document.getElementById("markisa").innerText);
+let sunset = parseInt(document.getElementById("sunset").innerText);
 
-  let total =
-  (strawberry * hargaMinuman) +
-  (melon * hargaMinuman) +
-  (markisa * hargaMinuman) +
-  (sunset * hargaMinuman);
+let total =
+(strawberry * hargaMinuman) +
+(melon * hargaMinuman) +
+(markisa * hargaMinuman) +
+(sunset * hargaMinuman);
 
-  if(document.getElementById("nata").checked){
-    total += hargaTopping;
-  }
+const toppingList = [
+"strawberry_nata","strawberry_boba","strawberry_jelly",
+"melon_nata","melon_boba","melon_jelly",
+"markisa_nata","markisa_boba","markisa_jelly",
+"sunset_nata","sunset_boba","sunset_jelly"
+];
 
-  if(document.getElementById("boba").checked){
-    total += hargaTopping;
-  }
+toppingList.forEach(id => {
+if(document.getElementById(id).checked){
+total += hargaTopping;
+}
+});
 
-  if(document.getElementById("jelly").checked){
-    total += hargaTopping;
-  }
-
-  document.getElementById("total").innerText =
-  total.toLocaleString("id-ID");
+document.getElementById("total").innerText =
+total.toLocaleString("id-ID");
 }
 
 function showQRIS(){
@@ -93,19 +94,26 @@ function kirimWA(){
   let total =
   document.getElementById("total").innerText;
 
-  let topping = [];
+  let toppingStrawberry = [];
+let toppingMelon = [];
+let toppingMarkisa = [];
+let toppingSunset = [];
 
-  if(document.getElementById("nata").checked){
-    topping.push("Nata de Coco");
-  }
+if(document.getElementById("strawberry_nata").checked) toppingStrawberry.push("Nata de Coco");
+if(document.getElementById("strawberry_boba").checked) toppingStrawberry.push("Popping Boba");
+if(document.getElementById("strawberry_jelly").checked) toppingStrawberry.push("Rainbow Jelly");
 
-  if(document.getElementById("boba").checked){
-    topping.push("Popping Boba");
-  }
+if(document.getElementById("melon_nata").checked) toppingMelon.push("Nata de Coco");
+if(document.getElementById("melon_boba").checked) toppingMelon.push("Popping Boba");
+if(document.getElementById("melon_jelly").checked) toppingMelon.push("Rainbow Jelly");
 
-  if(document.getElementById("jelly").checked){
-    topping.push("Rainbow Jelly");
-  }
+if(document.getElementById("markisa_nata").checked) toppingMarkisa.push("Nata de Coco");
+if(document.getElementById("markisa_boba").checked) toppingMarkisa.push("Popping Boba");
+if(document.getElementById("markisa_jelly").checked) toppingMarkisa.push("Rainbow Jelly");
+
+if(document.getElementById("sunset_nata").checked) toppingSunset.push("Nata de Coco");
+if(document.getElementById("sunset_boba").checked) toppingSunset.push("Popping Boba");
+if(document.getElementById("sunset_jelly").checked) toppingSunset.push("Rainbow Jelly");
 
   let pesan =
 `Halo Mintopia Mojito! 🍹
@@ -121,7 +129,21 @@ Pesanan:
 🌅 Sunset Berry : ${sunset}
 
 Topping:
-${topping.join(", ") || "-"}
+🍓 Strawberry Mojito : ${strawberry}
+Topping:
+${toppingStrawberry.join(", ") || "-"}
+
+🍈 Melon Mojito : ${melon}
+Topping:
+${toppingMelon.join(", ") || "-"}
+
+🍹 Markisa Mojito : ${markisa}
+Topping:
+${toppingMarkisa.join(", ") || "-"}
+
+🌅 Sunset Berry : ${sunset}
+Topping:
+${toppingSunset.join(", ") || "-"}
 
 📅 Tanggal Ambil:
 ${tanggal}
